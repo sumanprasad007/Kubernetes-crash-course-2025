@@ -1,0 +1,63 @@
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: dbname
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - default
+    # Optional: Add healthcheck to ensure the database is ready
+    # healthcheck:
+    #   test: ["CMD-SHELL", "pg_isready -U user -d dbname"]
+    #   interval: 5s
+    #   timeout: 5s
+    #   retries: 5
+
+  auth-service:
+    build: ./auth-service
+    ports:
+      - "8080:8080"
+    environment:
+      DATABASE_URL: postgresql://user:password@postgres:5432/dbname
+    depends_on:
+      - postgres
+    networks:
+      - default
+    # Optional: If using healthcheck, add condition
+    # depends_on:
+    #   postgres:
+    #     condition: service_healthy
+
+  game-service:
+    build: ./game-service
+    ports:
+      - "8081:8081"
+    environment:
+      DATABASE_URL: postgresql://user:password@postgres:5432/dbname
+    depends_on:
+      - postgres
+    networks:
+      - default
+    # Optional: If using healthcheck, add condition
+    # depends_on:
+    #   postgres:
+    #     condition: service_healthy
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - auth-service
+      - game-service
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge
