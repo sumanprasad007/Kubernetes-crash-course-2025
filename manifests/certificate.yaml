@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: crash-course-cert
+  namespace: crash-course
+spec:
+  secretName: crash-course-tls
+  dnsNames:
+  - course.kubesimplify.com
+  issuerRef:
+    name: letsencrypt-prod
+    kind: ClusterIssuer
+

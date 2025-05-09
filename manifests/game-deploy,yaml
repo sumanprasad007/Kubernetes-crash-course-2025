@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: game-service
+  namespace: crash-course
+spec:
+  replicas: 1
+  selector:
+    matchLabels: { app: game-service }
+  template:
+    metadata:
+      labels: { app: game-service }
+    spec:
+      containers:
+      - name: game-service
+        image: saiyam911/game-service
+        imagePullPolicy: IfNotPresent
+        env:
+        - name: DATABASE_URL
+          value: postgresql://user:password@postgres:5432/dbname
+        ports: [{ containerPort: 8081 }]
+

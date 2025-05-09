@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: init-sql
+  namespace: crash-course
+data:
+  init.sql: |
+    -- Connect to the database (already created by POSTGRES_DB=dbname)
+    \c dbname;
+
+    -- Create tables for auth-service
+    CREATE TABLE IF NOT EXISTS users (
+      id SERIAL PRIMARY KEY,
+      username VARCHAR(255) UNIQUE NOT NULL,
+      password_hash BYTEA NOT NULL
+    );
+
+    -- Create table for Snake game scores
+    CREATE TABLE IF NOT EXISTS snake_high_scores (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id),
+      score INTEGER DEFAULT 0
+    );
+
+    -- Create table for other game stats (Tic-Tac-Toe and Rock-Paper-Scissors)
+    CREATE TABLE IF NOT EXISTS games_stats (
+      id SERIAL PRIMARY KEY,
+      user_id INTEGER REFERENCES users(id),
+      game_type VARCHAR(50) NOT NULL,
+      wins INTEGER DEFAULT 0,
+      losses INTEGER DEFAULT 0
+    );
+

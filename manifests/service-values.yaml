@@ -1,0 +1,10 @@
+service:
+  type: LoadBalancer
+  ports:
+    - name: http
+      port: 80
+      targetPort: 18000
+    - name: https
+      port: 443
+      targetPort: 18001
+
