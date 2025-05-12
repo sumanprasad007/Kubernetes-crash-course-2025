@@ -13,7 +13,9 @@ const Signup = () => {
     e.preventDefault();
     setError('');
     try {
-      await axios.post('http://localhost:8080/register', { username, password });
+      const fullUrl = '/api/auth/register';
+      console.log('Signing up at:', fullUrl); // Debug log
+      await axios.post(fullUrl, { username, password });
       alert('Signup successful! Please log in.');
       history.push('/login');
     } catch (err) {

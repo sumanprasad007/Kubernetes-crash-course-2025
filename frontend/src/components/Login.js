@@ -13,7 +13,9 @@ const Login = () => {
     e.preventDefault();
     setError('');
     try {
-      const res = await axios.post('http://localhost:8080/login', { username, password });
+      const fullUrl = '/api/auth/login';
+      console.log('Logging in at:', fullUrl); // Debug log
+      const res = await axios.post(fullUrl, { username, password });
       localStorage.setItem('token', res.data.token);
       history.push('/dashboard');
     } catch (err) {

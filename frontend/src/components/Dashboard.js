@@ -23,7 +23,9 @@ const Dashboard = () => {
 
   const fetchScores = async () => {
     try {
-      const response = await axios.get('http://localhost:8081/users/scores', {
+      const fullUrl = '/api/game/users/scores';
+      console.log('Fetching scores from:', fullUrl); // Debug log
+      const response = await axios.get(fullUrl, {
         params: { t: new Date().getTime() }, // Cache-busting
       });
       setScores(response.data);

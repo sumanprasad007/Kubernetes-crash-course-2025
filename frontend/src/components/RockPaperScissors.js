@@ -35,13 +35,17 @@ const RockPaperScissors = () => {
       if (token && token.startsWith('Bearer ')) {
         token = token.split(' ')[1];
       }
+      console.log('Retrieved token:', token);
+
+      const fullUrl = '/api/game/game/stats';
+      console.log('Updating RPS stats at:', fullUrl); // Debug log
       const stats = {
         game_type: 'rock-paper-scissors',
         wins: gameResult === 'You Win!' ? 1 : 0,
         losses: gameResult === 'You Lose!' ? 1 : 0,
       };
-      const response = await axios.post('http://localhost:8081/game/stats', stats, {
-        headers: { Authorization: token },
+      const response = await axios.post(fullUrl, stats, {
+        headers: { Authorization: `Bearer ${token}` },
       });
       console.log('Rock Paper Scissors stats updated:', response.data);
     } catch (err) {

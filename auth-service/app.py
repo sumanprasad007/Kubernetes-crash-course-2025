@@ -84,6 +84,10 @@ def login():
                 'username': username,
                 'exp': datetime.datetime.utcnow() + datetime.timedelta(hours=24)
             }, SECRET_KEY, algorithm="HS256")
+            print(f"Generated token: {token}")
+            print(f"Token type: {type(token)}")
+            if isinstance(token, bytes):
+              token = token.decode('utf-8')
             return jsonify({"token": token}), 200
         else:
             return jsonify({"error": "Invalid credentials"}), 401

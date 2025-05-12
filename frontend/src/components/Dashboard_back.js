@@ -20,7 +20,8 @@ const Dashboard = () => {
 
   const fetchScores = async () => {
     try {
-      const response = await axios.get('http://localhost:8081/users/scores', {
+      const gameServiceUrl = process.env.REACT_APP_GAME_SERVICE_URL || 'http://localhost:8081';      
+      const response = await axios.get(`${gameServiceUrl}/users/scores`, {
         params: { t: new Date().getTime() }, // Cache-busting parameter
       });
       console.log('Fetched scores:', response.data);

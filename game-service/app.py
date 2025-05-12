@@ -5,8 +5,11 @@ import os
 import jwt
 import time
 
+
 app = Flask(__name__)
 CORS(app)
+
+
 
 # Database connection with retry logic
 def connect_to_db():
@@ -30,13 +33,21 @@ cur = conn.cursor()
 SECRET_KEY = "your-secret-key"
 
 def verify_token(token):
+    print(f"Received Authorization header: {token}")
+
     try:
         # Remove "Bearer " prefix if present
         if token.startswith('Bearer '):
             token = token.split(' ')[1]
+            print(f"Token after removing Bearer: {token}")  # Debug log
+        if isinstance(token, bytes):
+            token = token.decode('utf-8')
         decoded = jwt.decode(token, SECRET_KEY, algorithms=["HS256"])
+        print(f"Decoded token: {decoded}")  # Debug log
+
         return decoded['username']
-    except:
+    except Exception as e:
+        print(f"Token validation error: {str(e)}")  # Debug log
         return None
 
 @app.route('/users/scores', methods=['GET'])
@@ -99,6 +110,8 @@ def update_snake_score():
 @app.route('/game/stats', methods=['POST'])
 def update_game_stats():
     token = request.headers.get('Authorization')
+    print(f"Authorization header: {token}")  # Debug log
+
     username = verify_token(token)
     if not username:
         return jsonify({"error": "Unauthorized"}), 401

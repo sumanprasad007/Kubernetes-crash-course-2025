@@ -13,8 +13,8 @@ spec:
     spec:
       containers:
       - name: game-service
-        image: saiyam911/game-service
-        imagePullPolicy: IfNotPresent
+        image: saiyam911/game-service:v4
+        imagePullPolicy: Always
         env:
         - name: DATABASE_URL
           value: postgresql://user:password@postgres:5432/dbname

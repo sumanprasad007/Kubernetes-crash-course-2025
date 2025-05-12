@@ -30,6 +30,7 @@ const TicTacToe = () => {
   const updateGameStats = async (winner) => {
     try {
       const token = localStorage.getItem('token');
+      console.log('Retrieved token:', token);
       const stats = {
         game_type: 'tic-tac-toe',
         wins: winner === 'X' ? 1 : 0, // User wins if X wins
@@ -40,8 +41,10 @@ const TicTacToe = () => {
         stats.wins = 0;
         stats.losses = 0;
       }
-      const response = await axios.post('http://localhost:8081/game/stats', stats, {
-        headers: { Authorization: token },
+      const fullUrl = '/api/game/game/stats';
+      console.log('Updating RPS stats at:', fullUrl); // Debug log
+      const response = await axios.post(fullUrl, stats, {
+        headers: { Authorization: `Bearer ${token}` },
       });
       console.log('Tic-Tac-Toe stats updated:', response.data);
     } catch (err) {

@@ -64,8 +64,12 @@ const Snake = () => {
               if (token && token.startsWith('Bearer ')) {
                 token = token.split(' ')[1];
               }
-              axios.post('http://localhost:8081/snake/score', { score: newScore }, {
-                headers: { Authorization: token },
+              console.log('Retrieved token:', token);
+
+              const fullUrl = '/api/game/snake/score';
+              console.log('Updating RPS stats at:', fullUrl); // Debug log
+              axios.post(fullUrl, { score: newScore }, {
+                headers: { Authorization: `Bearer ${token}` },
               }).then((response) => {
                 console.log('Snake score updated:', response.data);
               }).catch((err) => {
