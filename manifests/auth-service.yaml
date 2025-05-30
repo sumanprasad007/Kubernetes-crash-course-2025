@@ -3,7 +3,12 @@ kind: Service
 metadata:
   name: auth-service
   namespace: crash-course
+  labels:
+    app: auth-service # <-- Add this label
+    release: prometheus # It's good practice to also add the release label
 spec:
   selector: { app: auth-service }
-  ports: [{ port: 8080, targetPort: 8080 }]
-
+  ports:
+  - name: http-metrics
+    port: 8080
+    targetPort: 8080

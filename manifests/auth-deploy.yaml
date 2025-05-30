@@ -13,10 +13,31 @@ spec:
     spec:
       containers:
       - name: auth-service
-        image: saiyam911/auth-service:v4
+        image: saiyam911/auth-service:v5
         imagePullPolicy: Always
+        ports:
+        - containerPort: 8080
         env:
-        - name: DATABASE_URL
-          value: postgresql://user:password@postgres:5432/dbname
-        ports: [{ containerPort: 8080 }]
-
+        # Pass database connection info as separate variables
+        - name: POSTGRES_HOST
+          value: "postgres-rw.crash-course.svc.cluster.local"
+        - name: POSTGRES_DB
+          value: "dbname"
+        # Fetch credentials securely from the secret
+        - name: POSTGRES_USER
+          valueFrom:
+            secretKeyRef:
+              name: postgres-app
+              key: username
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: postgres-app
+              key: password
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"

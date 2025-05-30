@@ -3,7 +3,12 @@ kind: Service
 metadata:
   name: game-service
   namespace: crash-course
+  labels:
+    app: game-service # <-- Add this label
+    release: prometheus # It's good practice to also add the release label
 spec:
   selector: { app: game-service }
-  ports: [{ port: 8081, targetPort: 8081 }]
-
+  ports:
+  - name: http-metrics
+    port: 8081
+    targetPort: 8081
