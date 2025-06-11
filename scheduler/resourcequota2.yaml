@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: example-quota
+  namespace: demo
+spec:
+  hard:
+    pods: "10" # total number of pods that can be created

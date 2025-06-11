@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: shared-namespace
+spec:
+  containers:
+    - name: p1
+      image: busybox
+      command: ['/bin/sh', '-c', 'sleep 10000']
+    - name: p2
+      image: nginx
