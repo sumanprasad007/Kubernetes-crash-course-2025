@@ -36,22 +36,28 @@ kubectl apply -f manifests/frontend-service.yaml
 ```
 3. **Database Setup with CloudNativePG**  
    - Install CNPF and create a postgress cluster using `pgcluster` CRD
-CNPG Install 
+
+CNPG Install
+
 ```
 kubectl apply --server-side -f \
   https://raw.githubusercontent.com/cloudnative-pg/cloudnative-pg/release-1.25/releases/cnpg-1.25.2.yaml
 ```
-Initial config map  
+
+Initial config map
+
 ```
  kubectl create configmap init-sql \                                      
   --from-file=init.sql=./init.sql \
   -n crash-course
 ```
 
-Cluster creation 
+Cluster creation
+
 ```
 kubectl apply -f pgcluster.yaml
 ```
+
 4. **Secure with HTTPS & Gateway API**  
    - Install `cert-manager`  
    - Enable Gateway API in your deployments  
