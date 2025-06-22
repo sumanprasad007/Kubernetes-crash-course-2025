@@ -13,6 +13,6 @@ spec:
     spec:
       containers:
       - name: frontend
-        image: saiyam911/frontend:v1
+        image: saiyam911/frontend:final
         imagePullPolicy: Always
         ports: [{ containerPort: 80 }]

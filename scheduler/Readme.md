@@ -3,8 +3,8 @@
 ```
 kubectl get ns 
 kubectl create ns dev 
-kubectl create ns bootcamp
-kubectl create deploy demo -n bootcamp --image=nginx
+kubectl create ns course
+kubectl create deploy demo -n course --image=nginx
 kubectl create deploy demo -n dev --image=nginx 
 kubectl config set-context --current --namespace=dev
 ```

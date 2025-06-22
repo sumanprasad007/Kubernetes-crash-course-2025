@@ -18,7 +18,7 @@ spec:
     - name: https
       protocol: HTTPS
       port: 443
-      hostname: "course.kubesimplify.com"
+      hostname: "k8s2025.kubesimplify.com"
       tls:
         mode: Terminate
         certificateRefs:

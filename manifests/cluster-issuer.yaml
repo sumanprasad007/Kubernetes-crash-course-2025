@@ -1,11 +1,9 @@
-# clusterissuer-letsencrypt.yaml
 apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt-prod
 spec:
   acme:
-    # Let’s Encrypt production endpoint
     server: https://acme-v02.api.letsencrypt.org/directory
     email: saiyam911@gmail.com
     privateKeySecretRef:
@@ -14,7 +12,7 @@ spec:
       - http01:
           gatewayHTTPRoute:
             parentRefs:
-              - name: http
+              - name: crash-course-gateway
                 namespace: kgateway-system
                 kind: Gateway
 

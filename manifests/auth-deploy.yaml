@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: auth-service
-        image: saiyam911/auth-service:v5
+        image: saiyam911/auth-service:final
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

@@ -13,7 +13,7 @@ spec:
     spec:
       containers:
       - name: game-service
-        image: saiyam911/game-service:v5
+        image: saiyam911/game-service:final
         imagePullPolicy: Always
         ports:
         - containerPort: 8081
