@@ -12,7 +12,8 @@ This course goes beyond theory and focuses on **real-world Kubernetes setups** f
 
 ### 🔁 Main App Flow Demo (Steps)
 0. **Buildindg Docker images of the applications**
-This step is to build the container images for the application. 
+This step is to build the container images for the application.
+
 ```
 docker buildx build --platform linux/amd64 --tag ttl.sh/game-service:v1 --push ./game-service
 docker buildx build --platform linux/amd64 --tag ttl.sh/auth-service:v1 --push ./auth-service
@@ -21,11 +22,12 @@ docker buildx build --platform linux/amd64 --tag ttl.sh/frontend:v1 --push ./fro
 
 1. **Deploy Core Microservices**  
    - `auth-service`, `frontend`, and `game-service`
-   ```
+
+```
 kubectl apply -f manifests/auth-deploy.yaml
 kubectl apply -f manifests/game-deploy.yaml
 kubectl apply -f manifests/frontend.yaml
-   ```
+```
 
 2. **Expose with Kubernetes Services**  
    - Internal service communication and external access
@@ -34,6 +36,7 @@ kubectl apply -f manifests/auth-service.yaml
 kubectl apply -f manifests/game-service.yaml
 kubectl apply -f manifests/frontend-service.yaml
 ```
+
 3. **Database Setup with CloudNativePG**  
    - Install CNPF and create a postgress cluster using `pgcluster` CRD
 
