@@ -3,6 +3,7 @@
 Welcome to the Kubernetes Crash Course, a practical, hands-on journey that takes you from the basics to a fully functional microservices architecture on Kubernetes — absolutely free 🎉.
 
 Thanks to our **partner [Exoscale](https://www.exoscale.com/)**, this course is available for everyone without any cost. 🙌
+![exoscale-RGB-logo-fullcolor-whiteBG](https://github.com/user-attachments/assets/1abe9523-d43c-4a7f-9104-26705595df1b)
 
 ---
 ## ▶️ Watch the Full Course on YouTube
@@ -132,7 +133,7 @@ Each folder corresponds to a major topic covered in the course:
 
 
 ## 🤝 Special Thanks to Exoscale
-![image](https://github.com/user-attachments/assets/4d78d35c-8602-4d1f-926c-6be5a049400d)
+![exoscale-RGB-logo-fullcolor-whiteBG](https://github.com/user-attachments/assets/74746c0f-a653-4e64-b963-a0579e3486c8)
 
 Big shoutout to **[Exoscale](https://www.exoscale.com/)** for **partnering on this course**. Their cloud-native focus and developer-first platform made it possible to create this educational series for free.
 
