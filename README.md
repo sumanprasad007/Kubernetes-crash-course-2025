@@ -5,6 +5,11 @@ Welcome to the Kubernetes Crash Course, a practical, hands-on journey that takes
 Thanks to our **partner [Exoscale](https://www.exoscale.com/)**, this course is available for everyone without any cost. 🙌
 
 ---
+## ▶️ Watch the Full Course on YouTube
+
+[![kubernetes logo ](https://github.com/user-attachments/assets/178204c0-7469-435d-86a0-011fd94bdca3)](https://youtu.be/EV47Oxwet6Y)
+
+---
 
 ## 🧠 What You’ll Learn
 
@@ -121,17 +126,13 @@ Each folder corresponds to a major topic covered in the course:
 - `Module1`: Intro module to Kubernetes
 - `init.sql`: Database initialization
 
-> 🚧 The main application end-to-end flow demo is being polished and will be added soon!
 
 ---
 
-## ▶️ Watch the Full Course on YouTube
 
-[![Watch on YouTube](https://img.youtube.com/vi/YOUR_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=YOUR_VIDEO_ID_HERE)
-
----
 
 ## 🤝 Special Thanks to Exoscale
+![image](https://github.com/user-attachments/assets/4d78d35c-8602-4d1f-926c-6be5a049400d)
 
 Big shoutout to **[Exoscale](https://www.exoscale.com/)** for **partnering on this course**. Their cloud-native focus and developer-first platform made it possible to create this educational series for free.
 
