@@ -127,12 +127,10 @@ Each folder corresponds to a major topic covered in the course:
 - `Module1`: Intro module to Kubernetes
 - `init.sql`: Database initialization
 
-
 ---
 
-
-
-## 🤝 Special Thanks to Exoscale, Jon their slack today(where you can ask anything about Kubernetes and this course). Click the image below. 
+## 🤝 Special Thanks to Exoscale
+Join their [slack](https://join.slack.com/t/exoscale-org/shared_invite/zt-34s6jetvl-tNP_TpfweeAKNnPb593j9A) today(where you can ask anything about Kubernetes and this course).
 [![exoscale-RGB-logo-fullcolor-whiteBG](https://github.com/user-attachments/assets/74746c0f-a653-4e64-b963-a0579e3486c8)](https://join.slack.com/t/exoscale-org/shared_invite/zt-34s6jetvl-tNP_TpfweeAKNnPb593j9A)
 
 Big shoutout to **[Exoscale](https://www.exoscale.com/)** for **partnering on this course**. Their cloud-native focus and developer-first platform made it possible to create this educational series for free.
