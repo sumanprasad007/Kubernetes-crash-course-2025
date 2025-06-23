@@ -2,8 +2,8 @@
 
 Welcome to the Kubernetes Crash Course, a practical, hands-on journey that takes you from the basics to a fully functional microservices architecture on Kubernetes — absolutely free 🎉.
 
-Thanks to our **partner [Exoscale](https://www.exoscale.com/)**, this course is available for everyone without any cost. 🙌
-![exoscale-RGB-logo-fullcolor-whiteBG](https://github.com/user-attachments/assets/1abe9523-d43c-4a7f-9104-26705595df1b)
+Thanks to our **partner [Exoscale](https://portal.exoscale.com/register?coupon=KUBE_CRASH_COURSE_ON_SKS)**, this course is available for everyone without any cost. 🙌 The best part is that Exoscale is giving away free 50.00 CHF so that not only you can learn but also practice on a cloud provider for FREE. Click the image below to access FREE credits.
+[![exoscale-RGB-logo-fullcolor-whiteBG](https://github.com/user-attachments/assets/1abe9523-d43c-4a7f-9104-26705595df1b)](https://portal.exoscale.com/register?coupon=KUBE_CRASH_COURSE_ON_SKS)
 
 ---
 ## ▶️ Watch the Full Course on YouTube
@@ -132,8 +132,8 @@ Each folder corresponds to a major topic covered in the course:
 
 
 
-## 🤝 Special Thanks to Exoscale
-![exoscale-RGB-logo-fullcolor-whiteBG](https://github.com/user-attachments/assets/74746c0f-a653-4e64-b963-a0579e3486c8)
+## 🤝 Special Thanks to Exoscale, Jon their slack today(where you can ask anything about Kubernetes and this course). Click the image below. 
+[![exoscale-RGB-logo-fullcolor-whiteBG](https://github.com/user-attachments/assets/74746c0f-a653-4e64-b963-a0579e3486c8)](https://join.slack.com/t/exoscale-org/shared_invite/zt-34s6jetvl-tNP_TpfweeAKNnPb593j9A)
 
 Big shoutout to **[Exoscale](https://www.exoscale.com/)** for **partnering on this course**. Their cloud-native focus and developer-first platform made it possible to create this educational series for free.
 
