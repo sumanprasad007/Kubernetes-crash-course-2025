@@ -2,17 +2,17 @@ In this file you get to create the USer from scratch and add that to your KUBECO
 
 
 ## Create CSR
-openssl genrsa -out saiyam.key 2048
-openssl req -new -key saiyam.key -out saiyam.csr -subj "/CN=saiyam/O=group1"
+openssl genrsa -out prasad.key 2048
+openssl req -new -key prasad.key -out prasad.csr -subj "/CN=prasad/O=group1"
 
 ## Sign CSE with Kubernetes CA
-cat saiyam.csr | base64 | tr -d '\n'
+cat prasad.csr | bas364 | tr -d '\n'
 
 ```
 apiVersion: certificates.k8s.io/v1
 kind: CertificateSigningRequest
 metadata:
-  name: saiyam
+  name: prasad
 spec:
   request: BASE64_CSR
   signerName: kubernetes.io/kube-apiserver-client
@@ -24,13 +24,15 @@ Note - change the BASE64_CSR with output of above command.
 ## Apply the CSR, approve it and then get the approve certificate
 ```
 kubectl apply -f csr.yaml
-kubectl certificate approve saiyam
+kubectl certificate approve prasad
 
-kubectl get csr saiyam -o jsonpath='{.status.certificate}' | base64 --decode > saiyam.crt
+kubectl get csr prasad -o jsonpath='{.status.certificate}' | base64 --decode > prasad.crt
 ```
 
 ## Create Role and role binding
 ```
+cat <<EOF > role.yaml
+
 kind: Role
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
@@ -48,19 +50,23 @@ metadata:
   namespace: default
 subjects:
 - kind: User
-  name: saiyam
+  name: prasad
   apiGroup: rbac.authorization.k8s.io
 roleRef:
   kind: Role
   name: pod-reader
   apiGroup: rbac.authorization.k8s.io
+  
+EOF
+
+kubectl apply -f role.yaml
 ```
 ### setup kubeconfig
 ```
-kubectl config set-credentials saiyam --client-certificate=saiyam.crt --client-key=saiyam.key
+kubectl config set-credentials prasad --client-certificate=prasad.crt --client-key=prasad.key
 kubectl config get-contexts
-kubectl config set-context saiyam-context --cluster=kubernetes --namespace=default --user=saiyam
-kubectl config use-context saiyam-context
+kubectl config set-context prasad-context --cluster=kubernetes --namespace=default --user=prasad
+kubectl config use-context prasad-context
 ```
 
 
