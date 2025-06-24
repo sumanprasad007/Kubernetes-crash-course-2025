@@ -85,7 +85,7 @@ kubectl run nginx --image=nginx --dry-run=client -o json
 
 ```
 
-### SA creation, clusterrolebinding and token creation
+### SA creation, clusterrolebinding and token creation [Imperative way]
 ```
 kubectl create serviceaccount sam --namespace default
 kubectl create clusterrolebinding sam-clusteradmin-binding --clusterrole=cluster-admin --serviceaccount=default:sam
