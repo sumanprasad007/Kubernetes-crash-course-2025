@@ -85,19 +85,21 @@ kubectl run nginx --image=nginx --dry-run=client -o json
 
 ```
 
-### SA creation, clusterrolebinding and token creation [Imperative way]
+### SA creation, cluster-admin is default clusterrole in k8s, clusterrolebinding and token creation [Imperative way]
 ```
 kubectl create serviceaccount sam --namespace default
 kubectl create clusterrolebinding sam-clusteradmin-binding --clusterrole=cluster-admin --serviceaccount=default:sam
+
+# required token of SA to talk to API server, let's create it
 kubectl create token sam
 TOKEN=outputfromabove
 ```
 ### CURL request to the API server. 
 ```
 APISERVER=$(kubectl config view --minify -o jsonpath='{.clusters[0].cluster.server}')
-List deployments
+# List deployments
 curl -X GET $APISERVER/apis/apps/v1/namespaces/default/deployments -H "Authorization: Bearer $TOKEN" -k
-Create Deployment
+# Create Deployment
 curl -X POST $APISERVER/apis/apps/v1/namespaces/default/deployments \
   -H "Authorization: Bearer $TOKEN" \
   -H 'Content-Type: application/json' \
