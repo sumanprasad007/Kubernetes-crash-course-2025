@@ -1,3 +1,5 @@
+cat <<EOF > priority_pod.yaml
+
 apiVersion: v1
 kind: Pod
 metadata:
@@ -13,3 +15,6 @@ spec:
       requests:
         cpu: "300m"
         memory: "300Mi"
+EOF
+
+kubectl apply -f priority_pod.yaml

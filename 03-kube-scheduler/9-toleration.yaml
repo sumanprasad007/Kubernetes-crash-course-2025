@@ -1,3 +1,5 @@
+kubectl taint node node-01 app=demo:NoSchedule
+# Tainting a node to prevent scheduling of pods that do not tolerate the taint
 
 cat <<EOF > toleration.yaml
 

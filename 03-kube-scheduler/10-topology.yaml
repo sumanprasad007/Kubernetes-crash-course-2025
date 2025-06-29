@@ -1,3 +1,7 @@
+kubectl create namespace demo
+
+cat <<EOF > topology.yaml
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -23,3 +27,7 @@ spec:
       containers:
       - name: app-container
         image: nginx
+
+EOF
+
+kubectl apply -f topology.yaml

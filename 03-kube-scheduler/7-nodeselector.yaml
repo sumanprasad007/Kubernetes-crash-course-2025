@@ -1,3 +1,5 @@
+kubectl label nodes node-01 workload=wasm
+
 cat <<EOF > 7-nodeselector.yaml
 
 apiVersion: v1
