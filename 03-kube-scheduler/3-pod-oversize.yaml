@@ -1,0 +1,24 @@
+# create pod oversized-pod in example-namespace at resource quota is of 500Mi and 1 CPU, but pod requests 600Mi and 600m CPU
+
+cat <<EOF > oversized-pod.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: oversized-pod
+  namespace: example-namespace
+spec:
+  containers:
+  - name: busybox
+    image: busybox
+    resources:
+      requests:
+        memory: "600Mi"
+        cpu: "600m"
+      limits:
+        memory: "600Mi"
+        cpu: "600m"
+
+EOF
+
+kubectl apply -f oversized-pod.yaml

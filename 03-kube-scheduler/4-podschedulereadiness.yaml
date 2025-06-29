@@ -1,0 +1,15 @@
+cat <<EOF > podschedulereadiness.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: demmo-pod
+spec:
+  schedulingGates:
+  - name: saiyam
+  containers:
+  - name: pause
+    image: registry.k8s.io/pause:3.6
+EOF
+
+kubectl apply -f podschedulereadiness.yaml

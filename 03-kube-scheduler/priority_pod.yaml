@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: high-priority-pod
+  namespace: demo
+spec:
+  priorityClassName: demo-priority
+  containers:
+  - name: busybox
+    image: busybox
+    command: ["sleep", "3600"]
+    resources:
+      requests:
+        cpu: "300m"
+        memory: "300Mi"

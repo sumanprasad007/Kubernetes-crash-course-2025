@@ -1,0 +1,19 @@
+
+cat <<EOF > toleration.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-with-tolerations
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  tolerations:
+  - key: "app"
+    operator: "Equal"
+    value: "demo"
+    effect: "NoSchedule"
+EOF
+
+kubectl apply -f toleration.yaml

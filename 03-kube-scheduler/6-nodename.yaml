@@ -1,0 +1,21 @@
+cat <<EOF > nodename.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: null
+  labels:
+    run: first
+  name: first
+spec:
+  nodeName: pool-bf9a6-esrwy
+  containers:
+  - image: nginx
+    name: first
+    resources: {}
+  dnsPolicy: ClusterFirst
+  restartPolicy: Always
+status: {}
+EOF
+
+kubectl apply -f nodename.yaml

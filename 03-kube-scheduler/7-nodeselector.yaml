@@ -1,0 +1,14 @@
+cat <<EOF > 7-nodeselector.yaml
+
+apiVersion: v1
+kind: Pod
+metadata:
+  name: nginx-ssd
+spec:
+  containers:
+  - name: nginx
+    image: nginx
+  nodeSelector:
+    workload: wasm
+EOF
+kubectl apply -f 7-nodeselector.yaml
