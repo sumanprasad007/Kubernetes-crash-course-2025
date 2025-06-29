@@ -1,3 +1,5 @@
+cat <<EOF > first.yaml
+
 apiVersion: v1
 kind: Pod
 metadata:
@@ -11,3 +13,7 @@ spec:
     image: ubuntu
     command: ["/bin/echo", "Hello"]  
     args: ["Welcome", "to", "Kubesimplify"]
+
+EOF
+
+kubectl apply -f first.yaml

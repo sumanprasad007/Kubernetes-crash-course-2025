@@ -1,3 +1,5 @@
+cat <<EOF > probe.yaml
+
 apiVersion: v1
 kind: Pod
 metadata:
@@ -29,3 +31,6 @@ spec:
         port: 80
       initialDelaySeconds: 5
       periodSeconds: 10
+EOF
+
+kubectl apply -f probe.yaml

@@ -1,3 +1,5 @@
+cat <<EOF > init.yaml
+
 apiVersion: v1
 kind: Pod
 metadata:
@@ -19,3 +21,6 @@ spec:
     volumeMounts:
     - name: shared-data
       mountPath: /usr/share/nginx/html
+EOF
+
+kubectl apply -f init.yaml

@@ -1,3 +1,5 @@
+cat <<EOF > os.yaml
+
 apiVersion: v1
 kind: Pod
 metadata:
@@ -8,3 +10,6 @@ spec:
   containers:
     - name: myapp
       image: myapp:latest
+
+EOF
+kubectl apply -f os.yaml
