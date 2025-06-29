@@ -1,0 +1,8 @@
+cat <<EOF > 1-sa.yaml
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: deployment-manager
+EOF
+
+kubectl apply -f 1-sa.yaml
