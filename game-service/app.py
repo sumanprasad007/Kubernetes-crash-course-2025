@@ -58,11 +58,13 @@ def get_scores():
                 cur.execute("""
                     SELECT u.username, s.score AS snake_high_score, 
                            t.wins AS tic_tac_toe_wins, t.losses AS tic_tac_toe_losses,
-                           r.wins AS rps_wins, r.losses AS rps_losses
+                           r.wins AS rps_wins, r.losses AS rps_losses,
+                           m.wins AS memory_game_wins, m.losses AS memory_game_losses
                     FROM users u
                     LEFT JOIN snake_high_scores s ON u.id = s.user_id
                     LEFT JOIN games_stats t ON u.id = t.user_id AND t.game_type = 'tic-tac-toe'
                     LEFT JOIN games_stats r ON u.id = r.user_id AND r.game_type = 'rock-paper-scissors'
+                    LEFT JOIN games_stats m ON u.id = m.user_id AND m.game_type = 'memory-game'
                 """)
                 scores = cur.fetchall()
                 return jsonify([{
@@ -71,7 +73,9 @@ def get_scores():
                     'tic_tac_toe_wins': row[2] or 0,
                     'tic_tac_toe_losses': row[3] or 0,
                     'rps_wins': row[4] or 0,
-                    'rps_losses': row[5] or 0
+                    'rps_losses': row[5] or 0,
+                    'memory_game_wins': row[6] or 0,
+                    'memory_game_losses': row[7] or 0
                 } for row in scores]), 200
     except Exception as e:
         app.logger.error(f"Error in get_scores: {str(e)}")

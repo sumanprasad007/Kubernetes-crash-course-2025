@@ -6,6 +6,7 @@ import Signup from './components/Signup';
 import Snake from './components/SnakeGame';
 import TicTacToe from './components/TicTacToe';
 import RockPaperScissors from './components/RockPaperScissors';
+import MemoryGame from './components/MemoryGame';
 import PrivateRoute from './components/PrivateRoute'; // NEW
 
 const App = () => {
@@ -58,6 +59,7 @@ const App = () => {
           <PrivateRoute path="/snake" component={Snake} />
           <PrivateRoute path="/tic-tac-toe" component={TicTacToe} />
           <PrivateRoute path="/rock-paper-scissors" component={RockPaperScissors} />
+          <PrivateRoute path="/memory-game" component={MemoryGame} />
         </Switch>
       </div>
     </Router>
